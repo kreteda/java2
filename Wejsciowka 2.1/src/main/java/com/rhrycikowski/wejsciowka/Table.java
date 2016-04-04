@@ -1,30 +1,30 @@
 package com.rhrycikowski.wejsciowka;
 
 public class Table {
-	String producent;
-	String model;
-	int cena;
+	static String producent;
+	static String model;
+	static int cena;
 	
 	public Table(){
 		
 	}
 	
 	public Table(String producent, String model, int cena){
-		this.producent = producent;
-		this.model = model;
-		this.cena = cena;
+		Table.producent = producent;
+		Table.model = model;
+		Table.cena = cena;
 	}
 	
 	public int getcena(){
-		return this.cena;
+		return Table.cena;
 	}
 	
 	public void setcena(int cena){
-		this.cena = cena;
+		Table.cena = cena;
 	}
 	
 	public String getproducent(){
-		return this.producent;
+		return Table.producent;
 	}
 	
 	public void setproducent(String producent){

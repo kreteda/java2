@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TableManager {
 	
-	 
+ 
 	public IMyList myList;
 	
 	public TableManager(IMyList myList){
