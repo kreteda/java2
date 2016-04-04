@@ -5,14 +5,12 @@ public class Table {
 	static String model;
 	static int cena;
 	
-	public Table(){
-		
-	}
+
 	
 	public Table(String producent, String model, int cena){
-		Table.producent = producent;
-		Table.model = model;
-		Table.cena = cena;
+		this.producent = producent;
+		this.model = model;
+		this.cena = cena;
 	}
 	
 	public int getcena(){
@@ -20,11 +18,11 @@ public class Table {
 	}
 	
 	public void setcena(int cena){
-		Table.cena = cena;
+		this.cena = cena;
 	}
 	
 	public String getproducent(){
-		return Table.producent;
+		return this.producent;
 	}
 	
 	public void setproducent(String producent){

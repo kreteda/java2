@@ -6,6 +6,7 @@ import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -24,7 +25,10 @@ public class TableMockTest {
 	private TableManager tableManager;
 	private IMyList mock;
 	private Table table = new Table(PRODUCENT, MODEL, CENA);
-	private List<Table> tables;
+	
+	private List<Table> tables = new ArrayList<Table> ();
+	
+	 
 	
 	@Before
 	public void setUp() {
