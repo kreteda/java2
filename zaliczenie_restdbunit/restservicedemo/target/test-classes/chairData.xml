@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <CHAIR MODEL="Kosmos" YOP="2015" OWNER_ID="1"/>
+  <CHAIR MODEL="NowyJork" YOP="2015" OWNER_ID="2"/>
+  <CHAIR MODEL="Kosmox" YOP="2015" OWNER_ID="3"/>
+  <CHAIR MODEL="Orlean" YOP="2015" OWNER_ID="4"/>
+  <CHAIR MODEL="Santa" YOP="2015"/>
+</dataset>
+
