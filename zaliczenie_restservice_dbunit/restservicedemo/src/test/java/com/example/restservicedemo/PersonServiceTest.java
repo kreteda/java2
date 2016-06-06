@@ -57,7 +57,7 @@ public class PersonServiceTest {
        contentType(MediaType.APPLICATION_JSON).
        body(p1).
     when().	     
-    post("/person/add").then().assertThat().statusCode(201);
+    put("/person/add").then().assertThat().statusCode(201);
 
 	String persons = get("/person/all").asString();
 
@@ -78,17 +78,17 @@ public class PersonServiceTest {
 				contentType(MediaType.APPLICATION_JSON).
 				body(p1).
 				when().
-				post("/person/add").then().assertThat().statusCode(201);
+				put("/person/add").then().assertThat().statusCode(201);
 		given().
 				contentType(MediaType.APPLICATION_JSON).
 				body(p2).
 				when().
-				post("/person/add").then().assertThat().statusCode(201);
+				put("/person/add").then().assertThat().statusCode(201);
 		given().
 				contentType(MediaType.APPLICATION_JSON).
 				body(p3).
 				when().
-				post("/person/add").then().assertThat().statusCode(201);
+				put("/person/add").then().assertThat().statusCode(201);
 
 		String result = get("/person/all/").asString();
 
