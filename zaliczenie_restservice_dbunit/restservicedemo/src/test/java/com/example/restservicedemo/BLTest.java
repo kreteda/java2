@@ -9,6 +9,7 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.example.restservicedemo.domain.Chair;
@@ -24,16 +25,16 @@ public class BLTest {
 	private static Chair c2;
 	private static Chair c3;
 	
-	private static ChairManager cm = new ChairManager();
-	private static PersonManager pm = new PersonManager();
+	 ChairManager cm = new ChairManager();
+	 PersonManager pm = new PersonManager();
 	@BeforeClass
 	public static void setUp() {
 		p1 = new Person("Kowalski", 1980);
 		p2 = new Person("Nowak", 1985);
 		p3 = new Person("Kowal", 1950);
-		c1 = new Chair("Mazda", 1999);
-		c2 = new Chair("Opel", 2016);
-		c3 = new Chair("Audi", 2010);
+		c1 = new Chair("Nowyjork", 1999);
+		c2 = new Chair("Metaloo", 2016);
+		c3 = new Chair("PanTadeusz", 2010);	
 	}
 	@Before
 	@After
@@ -136,6 +137,36 @@ public class BLTest {
 		assertEquals(c3.getModel(), chairs.get(2).getModel());
 	}
 	@Test
+	public void getPersonsWithChairs() {
+
+		pm.addPerson(p1);
+		pm.addPerson(p2);
+		pm.addPerson(p3);
+		cm.addChair(c1);
+		cm.addChair(c2);
+
+		
+		List<Person> persons = pm.getAllPersons();
+
+		List<Chair> chairs = cm.getAllChairs();
+		
+		assertEquals(1, cm.sellChair(chairs.get(0), persons.get(0)));
+
+		Chair answer2 = cm.getChairWithOwner(chairs.get(0));
+		
+		
+		cm.sellChair(chairs.get(0), persons.get(0));
+		cm.sellChair(chairs.get(1), persons.get(1));
+		
+		//assertEquals(1, cm.sellChair(chairs.get(0), persons.get(0)));
+		//assertEquals(1, cm.sellChair(chairs.get(1), persons.get(1)));
+
+		Map<Person, List<Chair>> answer = pm.getPersonWithChair();
+
+		assertTrue(answer.size() == 2);
+	}	
+	
+	@Test
 	public void sellChairAndGetChairWithOwner() {
 
 		pm.addPerson(p1);
@@ -162,26 +193,5 @@ public class BLTest {
 		assertEquals(persons.get(0).getYob(), answer.getOwner().getYob());
 
 	}	
-	@Test
-	public void getPersonsWithChairs() {
 
-		pm.addPerson(p1);
-		pm.addPerson(p2);
-		pm.addPerson(p3);
-		cm.addChair(c1);
-		cm.addChair(c2);
-
-		
-		List<Person> persons = pm.getAllPersons();
-
-		List<Chair> chairs = cm.getAllChairs();
-
-
-		assertEquals(1, cm.sellChair(chairs.get(0), persons.get(0)));
-		assertEquals(1, cm.sellChair(chairs.get(1), persons.get(1)));
-
-		Map<Person, List<Chair>> answer = pm.getPersonWithChair();
-
-		assertTrue(answer.size() == 2);
-	}	
 }
